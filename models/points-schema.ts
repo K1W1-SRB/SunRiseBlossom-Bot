@@ -1,21 +1,20 @@
 import mongoose, { mongo, Schema } from "mongoose";
 
 const reqSting = {
-    type: String,
+  type: String,
+  required: true,
+};
+
+const profileSchema = new Schema({
+  userId: reqSting,
+  guildId: reqSting,
+  petals: {
+    type: Number,
+    default: 0,
     required: true,
-}
+  },
+});
 
-const profileSchema = new Schema(
-    {
-      userId: reqSting,
-      guildId: reqSting,
-      petals: {
-        type: Number,
-        required: true,
-      }
-    },
-)
+const name = "pointsSchema";
 
-const name = 'pointsSchema'
-
-export default mongoose.models[name] || mongoose.model(name, profileSchema)
+export default mongoose.models[name] || mongoose.model(name, profileSchema);
