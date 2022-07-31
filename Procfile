@@ -1,1 +1,1 @@
-Worker: nodemon index.ts
+Worker: ts-node index.ts
