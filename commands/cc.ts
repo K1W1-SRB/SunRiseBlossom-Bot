@@ -1,30 +1,29 @@
 import { ICommand } from "wokcommands";
 
 export default {
-    category: 'Moderation',
-    description: 'deletes multiple messages at once.',
+  category: "Moderation",
+  description: "deletes multiple messages at once.",
 
-    permissions: ['ADMINISTRATOR'],
-    requireRoles: true,
+  permissions: ["ADMINISTRATOR"],
+  requireRoles: true,
 
-    minArgs: 1,
-    maxArgs: 1,
-    expectedArgs: '[amount]',
+  minArgs: 1,
+  maxArgs: 1,
+  expectedArgs: "[amount]",
 
-    
-    testOnly: true,
+  testOnly: true,
 
-    callback: async ({ message, interaction, channel, args}) => {
-        const amount = parseInt(args.shift()!)
+  callback: async ({ message, interaction, channel, args }) => {
+    const amount = parseInt(args.shift()!);
 
-        if (message) {
-            await message.delete()
-        }
+    if (message) {
+      await message.delete();
+    }
 
-        const { size } = await channel.bulkDelete(amount, true)
+    const { size } = await channel.bulkDelete(amount, true);
 
-        const reply = `Delted ${size} message(s)`
+    const reply = `Deleted ${size} message(s)`;
 
-        channel.send(reply)
-    },
-} as ICommand
+    channel.send(reply);
+  },
+} as ICommand;

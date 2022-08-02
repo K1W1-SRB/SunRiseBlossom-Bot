@@ -7,7 +7,7 @@ const reqSting = {
 
 const profileSchema = new Schema({
   userId: reqSting,
-  guildId: reqSting,
+  serverId: reqSting,
   petals: {
     type: Number,
     default: 0,

@@ -9,12 +9,14 @@ export default {
   slash: "both",
   testOnly: true,
 
-  callback: ({ member, client }) => {
+  callback: async ({ member }) => {
     let profile = await pointsSchema.create({
       userID: member.id,
       serverID: member.guild.id,
       petals: 0,
     });
     profile.save();
+
+    return "done";
   },
 } as ICommand;
