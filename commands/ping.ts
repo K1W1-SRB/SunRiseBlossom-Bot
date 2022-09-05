@@ -1,15 +1,15 @@
 import { ICommand } from "wokcommands";
 
-//ping command 
+//ping command
 export default {
-    category: 'game',
-    description: 'Replies with pong',
+  category: "game",
+  description: "Replies with pong",
 
-    slash: "both",
-    testOnly: true,
+  slash: "both",
+  testOnly: true,
 
-    callback: ({ }) => {
-        return 'pong'    
-    },
-} as ICommand
+  callback: ({}) => {
+    return "pong";
+  },
+} as ICommand;
 // works with both !ping & /ping

@@ -6,8 +6,9 @@ const reqSting = {
 };
 
 const profileSchema = new Schema({
-  userId: reqSting,
-  serverId: reqSting,
+  _id: reqSting,
+  serverID: reqSting,
+  daily: { type: Date, required: true },
   petals: {
     type: Number,
     default: 0,

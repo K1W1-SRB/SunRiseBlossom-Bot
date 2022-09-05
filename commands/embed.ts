@@ -3,32 +3,26 @@ import { ICommand } from "wokcommands";
 
 //embed messages using !embed {json}
 export default {
-    category: 'embed',
-    description: 'Sends an embed',
+  category: "embed",
+  description: "Sends an embed",
 
-    permissions: ['ADMINISTRATOR'],
+  slash: "both",
 
-    callback: async ({ message, text }) => {
-        const json =JSON.parse(text)
+  permissions: ["ADMINISTRATOR"],
 
-        const embed = new MessageEmbed(json)
+  callback: async ({ interaction, message, text }) => {
+    if (!interaction) {
+      return "Please Use Prefix";
+    }
 
-        return embed
+    const json = JSON.parse(text);
 
-    },
-} as ICommand
+    const embed = new MessageEmbed(json);
 
-// Json objects {
-//     author?,
-//     color?,
-//     description?,
-//     fields?,
-//     fotter?,
-//     image?,
-//     provider?,
-//     thumbnail?,
-//     timestamp?,
-//     Title?,
-//     url?,
-//     vidio?,
-// }
+    if (!embed) {
+      return "Please enter json";
+    }
+
+    return embed;
+  },
+} as ICommand;
